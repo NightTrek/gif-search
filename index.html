@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>giphy generator</title>
+
+    <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Bootstrap CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./assets/style/style.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row bg-primary py-5 mb-2">
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-lg-6">
+                <h1> Type in your search term to generate a gif</h1>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <input type="text" value=" input gif here" id="text-input">
+            </div>
+            <div class="col-sm-3 col-lg-2">
+                <input type="button" value="submit" id="submit">
+            </div>
+
+        </div>
+
+        <div class="row" id="gifs"> 
+
+
+        </div>
+
+
+    </div>
+    
+    <script src="./assets/javascript/giphy-generator.js"></script>
+</body>
+</html>
