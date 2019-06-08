@@ -4,7 +4,7 @@ var textInput = $('#text-input');
 var gifArray = [];
 var deletionNumber = 0;
 var linkbuilder = function (string) {
-    return `https://api.giphy.com/v1/gifs/search?api_key=7NCgQNu9PIxYnwBdzXkXtF9OLJEuaVd3&q=${string}&limit=25&offset=0&rating=PG&lang=en`
+    return `https://api.giphy.com/v1/gifs/search?api_key=7NCgQNu9PIxYnwBdzXkXtF9OLJEuaVd3&q=${string}&limit=25&offset=0&rating=pg&lang=en`
 }
 
 //GIFs are objects which have a newDiv img and ID they have functions which allow. you can render them to animate when clicked and delete them
@@ -46,7 +46,7 @@ class Gif {
         this.newDiv.remove();
     }
 }
-
+$(document).ready( function(){ 
 $(document).on("click", "#submit", function () {
     let val = textInput.val();
     gifArray.push(new Gif(gifArray.length, val));
@@ -63,4 +63,5 @@ $(document).on("click", "#submit", function () {
 $(document).on("click", ".gif", function () {
     let clickedGif = gifArray[$(this).attr('data')];
     clickedGif.renderAfterClick();
+});
 });
