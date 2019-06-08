@@ -3,10 +3,6 @@ var submit = $('#submit');
 var textInput = $('#text-input');
 var gifArray = [];
 var deletionNumber = 0;
-var linkbuilder = function (string) {
-    return `https://api.giphy.com/v1/gifs/search?api_key=7NCgQNu9PIxYnwBdzXkXtF9OLJEuaVd3&q=${string}&limit=25&offset=0&rating=pg&lang=en`
-}
-
 //GIFs are objects which have a newDiv img and ID they have functions which allow. you can render them to animate when clicked and delete them
 class Gif {
     constructor(id, string) {
@@ -17,18 +13,20 @@ class Gif {
         this.img = $('<img>');
         this.output = $('#gifs');
         $.ajax({
-            url: linkbuilder(string),
+            url: this.linkbuilder(string),
             method: "GET"
         }).then(function (response) {
             let number = Math.floor(Math.random() * response.data.length)
             that.static = response.data[number].images.fixed_height_still.url;
             that.loop = response.data[number].images.fixed_height.url;
-            that.newDiv.attr('class', "col-sm-6 col-lg-3 gif mx-5 my-2").attr("data", that.ID);
             that.img.attr('src', that.static).attr("data", that.ID).attr('width', '300px');
-            that.newDiv.append(that.img);
+            that.newDiv.attr('class', "col-sm-6 col-lg-3 gif mx-5 my-2").attr("data", that.ID).append(that.img);
             that.output.prepend(that.newDiv);
         });
 
+    }
+    linkbuilder(string) {
+        return `https://api.giphy.com/v1/gifs/search?api_key=7NCgQNu9PIxYnwBdzXkXtF9OLJEuaVd3&q=${string}&limit=50&offset=0&rating=pg&lang=en`
     }
 
     renderAfterClick() {
